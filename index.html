@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>HEX DEC trans</title>
+<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+<style>
+    body {
+        padding: 1rem;
+    }
+    input[type=text]:disabled {
+        color: red !important;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+<h1>Hex & Dec transtion</h1>
+<form class="pure-form" id="h2d">
+    <fieldset>
+        <legend>Hex to Dec</legend>
+        <input class="inputed" type="text" placeholder="hex" required>
+        <button type="submit" class="pure-button pure-button-primary">Trans</button>
+        <input class="output" type="text" disabled>
+    </fieldset>
+</form>
+<form class="pure-form" id="d2h">
+    <fieldset>
+        <legend>Dec to Hex</legend>
+        <input class="inputed" type="number" placeholder="dec" required>
+        <button type="submit" class="pure-button pure-button-primary">Trans</button>
+        <input class="output" type="text" disabled>
+    </fieldset>
+</form>
+</body>
+<script>
+document.querySelector('#h2d').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var val = document.querySelector('#h2d .inputed').value;
+  console.log(val);
+  document.querySelector('#h2d .output').value = parseInt(val, 16);
+});
+document.querySelector('#d2h').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var val = document.querySelector('#d2h .inputed').value;
+  console.log(val);
+  document.querySelector('#d2h .output').value = parseInt(val, 10).toString(16);
+});
+</script>
+</html>
